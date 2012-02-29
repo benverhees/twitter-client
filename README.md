@@ -1,11 +1,16 @@
 twitter-client
 ==============
+This is a work in progress and will evolve into a Twitter API client library for node. It reconnects automatically when it's disconnected, and backs off from failures by configurable steps, honoring the reconnection rules set by Twitter.
 
-This is a work in progress and will evolve into a Twitter API client library for node. It reconnects automatically when it's disconnected, and backs off from failures: none for first disconnect, seconds for repeated network (TCP/IP) level issues, minutes for non-200 HTTP codes.
+See: https://dev.twitter.com/docs/streaming-api/concepts#connecting
+
+Currently adheres to the following rules
+----------------------------------------
+* When a network error (TCP/IP level) is encountered, back off linearly. Perhaps start at 250 milliseconds and cap at 16 seconds.
+* When a HTTP error (> 200) is returned, back off exponentially. Perhaps start with a 10 second wait, double on each subsequent failure, and finally cap the wait at 240 seconds.
 
 Example
 -------
-
 ```js
  var twitter = require('twitter-client')(null);
  var express = require('express');
