@@ -12,7 +12,7 @@ Example
  
  var app = express.createServer();
  
- //Register a url that will redirect to the Twitter and request user authorization.
+ //Register a url that will redirect to Twitter to request user authorization.
  app.get('/twitterlogin', function(req, res) {
    twitter.obtainRequestToken(null, function(error, oauth_token) {
      res.writeHead(302, { 'location': twitter.getAuthenticateUrl(oauth_token) });
