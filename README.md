@@ -4,8 +4,8 @@ This is a work in progress and will evolve into a Twitter API client library for
 
 See: https://dev.twitter.com/docs/streaming-api/concepts#connecting
 
-Currently adheres to the following rules
-----------------------------------------
+_Currently adheres to the following rules_
+
 * When a network error (TCP/IP level) is encountered, back off linearly. Perhaps start at 250 milliseconds and cap at 16 seconds.
 * When a HTTP error (> 200) is returned, back off exponentially. Perhaps start with a 10 second wait, double on each subsequent failure, and finally cap the wait at 240 seconds.
 
