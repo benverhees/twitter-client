@@ -6,7 +6,7 @@ This is a Twitter client for node. It reconnects automatically when it's disconn
 Example
 -------
 
-<code>
+`
 var twitter = require('twitter-client')(null);
 var express = require('express');
 
@@ -40,4 +40,4 @@ app.get('/twittercallback', function (req, res) {
 });
 
 app.listen(1337);
-</code>
+`
